@@ -63,6 +63,8 @@ class HeliosKWLAccessory implements AccessoryPlugin {
 
   private isFetching = false;
 
+  private fanStage = 2;
+
   private readonly partySwitch: Service;
 
   private readonly fan: Service;
@@ -227,7 +229,7 @@ class HeliosKWLAccessory implements AccessoryPlugin {
           .updateValue(this.lastFanOnValue);
         this.fan
           .getCharacteristic(hap.Characteristic.RotationSpeed)
-          .updateValue(toPercent(this.fanStage);
+          .updateValue(toPercent(this.fanStage));
       });
     } catch (error) {
       this.log.error(`Error fetching values: ${error}`);
